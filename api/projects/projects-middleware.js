@@ -1,6 +1,6 @@
 // add middlewares here related to projects
 let validateProject = (req, res, next) => {
-  if (!req.body.name || !req.body.description || !req.body.completed) {
+  if (typeof(req.body.name) != 'string' || typeof(req.body.description) != 'string' || typeof(req.body.completed) != 'boolean') {
     next({ status: 400, message: 'bad request, Farhaan' });
     return;
   }

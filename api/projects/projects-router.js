@@ -52,7 +52,7 @@ router.post('/', validateProject, (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => { // validateProject  
+router.put('/:id', validateProject, (req, res) => { // validateProject  
   Projects.update(req.params.id, req.body)
     .then(project => {
       if (project) {
