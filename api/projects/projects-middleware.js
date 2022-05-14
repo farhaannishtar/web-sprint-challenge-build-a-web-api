@@ -1,6 +1,6 @@
 // add middlewares here related to projects
 let validateProject = (req, res, next) => {
-  if(!req.body.name || !req.body.description || !req.body.completed) {
+  if (!req.body.name || !req.body.description || !req.body.completed) {
     next({ status: 400, message: 'bad request, Farhaan' });
     return;
   }

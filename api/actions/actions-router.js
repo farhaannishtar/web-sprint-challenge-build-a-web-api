@@ -42,7 +42,7 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
-router.post('/', (req, res) => { // validateAction
+router.post('/', validateAction, (req, res) => { // validateAction
   Actions.insert(req.body)
     .then(action => {
       res.status(201).json(action);
@@ -56,7 +56,7 @@ router.post('/', (req, res) => { // validateAction
     });
 });
 
-router.put('/:id', validateAction, (req, res) => { // validateProject  
+router.put('/:id', validateAction, (req, res) => { // validateAction  
   Actions.update(req.params.id, req.body)
     .then(action => {
       if (action) {
